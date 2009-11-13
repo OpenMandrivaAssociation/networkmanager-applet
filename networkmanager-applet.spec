@@ -19,6 +19,7 @@ BuildRequires:	libiw-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	polkit-1-devel
 Requires:	networkmanager
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Network-manager-applet is a system tray applet which lets you easily
