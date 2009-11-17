@@ -1,4 +1,4 @@
-%define snapshot git20091021
+%define snapshot git20091117
 
 %define	rname	network-manager-applet
 Name:		networkmanager-applet
@@ -8,13 +8,14 @@ Release:	%mkrel 0.%{snapshot}.1
 Group:		System/Configuration/Networking
 License:	GPLv2+
 URL:		http://www.gnome.org/projects/NetworkManager/
-Source0:	network-manager-applet-%{version}.%{snapshot}.tar.bz2
+Source0:	network-manager-applet-%{version}.%{snapshot}.tar.xz
 BuildRequires:	intltool
 BuildRequires:	libnm-glib-devel
 BuildRequires:	libnm-glib-vpn-devel
 BuildRequires:	libGConf2-devel
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnome-keyring-devel
+#BuildRequires:	gnome-bluetooth-devel
 BuildRequires:	libiw-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	polkit-1-devel
