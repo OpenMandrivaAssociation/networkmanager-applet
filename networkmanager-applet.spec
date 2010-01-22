@@ -1,10 +1,10 @@
-%define snapshot git20100101
+%define snapshot git20100122
 
 %define	rname	network-manager-applet
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	0.7.997
-Release:	%mkrel 0.%{snapshot}.1
+Version:	0.7.999
+Release:	%mkrel 1.%{snapshot}.1
 Group:		System/Configuration/Networking
 License:	GPLv2+
 URL:		http://www.gnome.org/projects/NetworkManager/
