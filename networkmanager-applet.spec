@@ -4,11 +4,12 @@
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
 Version:	0.7.999
-Release:	%mkrel 1.%{snapshot}.1
+Release:	%mkrel 1.%{snapshot}.2
 Group:		System/Configuration/Networking
 License:	GPLv2+
 URL:		http://www.gnome.org/projects/NetworkManager/
 Source0:	network-manager-applet-%{version}.%{snapshot}.tar.xz
+Patch0:		network-manager-applet-0.7.999-dont-start-in-kde.patch
 BuildRequires:	intltool
 BuildRequires:	libnm-glib-devel
 BuildRequires:	libnm-glib-vpn-devel
@@ -33,6 +34,7 @@ gnome-keyring.
 
 %prep
 %setup -q -n %{rname}-%{version}
+%patch0 -p1
 
 %build
 autoreconf -fis
