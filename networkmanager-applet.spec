@@ -1,14 +1,23 @@
-%define snapshot git20100122
+#define snapshot git20100122
+%define snapshot 0
 
 %define	rname	network-manager-applet
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	0.7.999
-Release:	%mkrel 1.%{snapshot}.2
+Version:	0.8
+%if %{snapshot}
+Release:	%mkrel 0.%{snapshot}.2
+%else
+Release:        %mkrel 1
+%endif
 Group:		System/Configuration/Networking
 License:	GPLv2+
 URL:		http://www.gnome.org/projects/NetworkManager/
+%if %snapshot
 Source0:	network-manager-applet-%{version}.%{snapshot}.tar.xz
+%else
+Source0:        http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/0.8/%{rname}-%{version}.tar.bz2
+%endif
 Patch0:		network-manager-applet-0.7.999-dont-start-in-kde.patch
 BuildRequires:	intltool
 BuildRequires:	libnm-glib-devel
