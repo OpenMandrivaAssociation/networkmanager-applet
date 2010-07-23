@@ -4,7 +4,7 @@
 %define	rname	network-manager-applet
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	0.8.0.999
+Version:	0.8.1
 %if %{snapshot}
 Release:	%mkrel 0.%{snapshot}.2
 %else
@@ -20,8 +20,8 @@ Source0:        http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/0.
 %endif
 Patch0:		network-manager-applet-0.7.999-dont-start-in-kde.patch
 BuildRequires:	intltool
-BuildRequires:	libnm-glib-devel
-BuildRequires:	libnm-glib-vpn-devel
+BuildRequires:	libnm-glib-devel >= 0.8.1
+BuildRequires:	libnm-glib-vpn-devel >= 0.8.1
 BuildRequires:	libGConf2-devel
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnome-keyring-devel
@@ -46,7 +46,7 @@ gnome-keyring.
 %patch0 -p1
 
 %build
-autoreconf -fis
+autoreconf -fi
 %configure2_5x	--disable-static \
 		--enable-more-warnings=yes 
 %make
