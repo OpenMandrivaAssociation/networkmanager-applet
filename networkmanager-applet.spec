@@ -4,7 +4,7 @@
 %define	rname	network-manager-applet
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	0.8.1
+Version:	0.8.1.999
 %if %{snapshot}
 Release:	%mkrel 0.%{snapshot}.2
 %else
