@@ -20,8 +20,8 @@ Source0:        http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/0.
 %endif
 Patch0:		network-manager-applet-0.7.999-dont-start-in-kde.patch
 BuildRequires:	intltool
-BuildRequires:	libnm-glib-devel >= 0.8.1
-BuildRequires:	libnm-glib-vpn-devel >= 0.8.1
+BuildRequires:	libnm-glib-devel >= 0.8.2
+BuildRequires:	libnm-glib-vpn-devel >= 0.8.2
 BuildRequires:	libGConf2-devel
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnome-keyring-devel
