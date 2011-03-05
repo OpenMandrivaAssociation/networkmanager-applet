@@ -4,7 +4,7 @@
 %define	rname	network-manager-applet
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	0.8.2
+Version:	0.8.3.997
 %if %{snapshot}
 Release:	%mkrel 0.%{snapshot}.2
 %else
@@ -20,12 +20,11 @@ Source0:        http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/0.
 %endif
 Patch0:		network-manager-applet-0.7.999-dont-start-in-kde.patch
 BuildRequires:	intltool
-BuildRequires:	libnm-glib-devel >= 0.8.2
-BuildRequires:	libnm-glib-vpn-devel >= 0.8.2
+BuildRequires:	libnm-glib-devel >= 0.8.3.997
+BuildRequires:	libnm-glib-vpn-devel >= 0.8.3.997
 BuildRequires:	libGConf2-devel
-BuildRequires:	libglade2-devel
 BuildRequires:	libgnome-keyring-devel
-#BuildRequires:	gnome-bluetooth-devel
+BuildRequires:	gnome-bluetooth-devel
 BuildRequires:	libiw-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	polkit-1-devel
@@ -66,11 +65,12 @@ rm -rf %{buildroot}
 %{_bindir}/nm-connection-editor
 %{_bindir}/nm-applet
 %{_datadir}/applications/nm-connection-editor.desktop
-%{_iconsdir}/hicolor/*/apps/*
 %dir %{_datadir}/nm-applet/
-%{_datadir}/nm-applet/*.glade
 %{_datadir}/nm-applet/*.png
+%{_datadir}/nm-applet/*.ui
+%{_iconsdir}/hicolor/*/apps/*
+%{_libdir}/gnome-bluetooth/plugins/libnma.la
+%{_libdir}/gnome-bluetooth/plugins/libnma.so
 %{_sysconfdir}/xdg/autostart/nm-applet.desktop
 %{_sysconfdir}/dbus-1/system.d/nm-applet.conf
 %{_sysconfdir}/gconf/schemas/nm-applet.schemas
-
