@@ -47,7 +47,7 @@ gnome-keyring.
 %build
 autoreconf -fi
 %configure2_5x	--disable-static \
-		--enable-more-warnings=yes 
+		--enable-more-warnings=no
 %make
 
 %install
