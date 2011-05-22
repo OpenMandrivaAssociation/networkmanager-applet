@@ -6,7 +6,7 @@ Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
 Version:	0.8.4
 %if %{snapshot}
-Release:	%mkrel 0.%{snapshot}.2
+Release:	%mkrel 0.%{snapshot}.3
 %else
 Release:        %mkrel 1
 %endif
