@@ -1,16 +1,16 @@
 %define	rname	network-manager-applet
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	0.8.4
-Release:        %mkrel 2
+Version:	0.8.6.0
+Release:        %mkrel 1
 Group:		System/Configuration/Networking
 License:	GPLv2+
 URL:		http://www.gnome.org/projects/NetworkManager/
-Source0:        http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/0.8/%{rname}-%{version}.tar.bz2
+Source0:        http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/0.8/%{rname}-%{version}.tar.xz
 Patch0:		network-manager-applet-0.7.999-dont-start-in-kde.patch
 BuildRequires:	intltool
-BuildRequires:	libnm-glib-devel >= 0.8.4
-BuildRequires:	libnm-glib-vpn-devel >= 0.8.4
+BuildRequires:	libnm-glib-devel >= 0.8.6.0
+BuildRequires:	libnm-glib-vpn-devel >= 0.8.6.0
 BuildRequires:	libGConf2-devel
 BuildRequires:	libgnome-keyring-devel
 BuildRequires:	gnome-bluetooth-devel
