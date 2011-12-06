@@ -10,7 +10,7 @@ Release:	1
 Group:		System/Configuration/Networking
 License:	GPLv2+
 URL:		http://www.gnome.org/projects/NetworkManager/
-Source0:        http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/0.9/%{rname}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/0.9/%{rname}-%{version}.tar.xz
 Patch0:		network-manager-applet-0.7.999-dont-start-in-kde.patch
 
 BuildRequires:	intltool
@@ -45,6 +45,9 @@ Library from %{name}-gtk
 Group:      Development/C
 Summary:    Development libraries and header files from %{name}
 Requires:   %{libname} = %{EVRD}
+
+%description -n %{develname}
+%{name}-gtk development headers and libraries.
 
 %prep
 %setup -qn %{rname}-%{version}
