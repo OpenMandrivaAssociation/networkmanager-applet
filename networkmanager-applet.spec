@@ -5,7 +5,7 @@
 
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	0.9.2.0
+Version:	0.9.4.1
 Release:	1
 Group:		System/Configuration/Networking
 License:	GPLv2+
@@ -57,7 +57,8 @@ Requires:   %{libname} = %{EVRD}
 autoreconf -fi
 %configure2_5x \
 	--disable-static \
-	--enable-more-warnings=no
+	--enable-more-warnings=no \
+	--with-bluetooth
 
 %make
 
@@ -90,4 +91,3 @@ find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 %{_includedir}/libnm-gtk/*
 %{_libdir}/libnm-gtk.so
 %{_libdir}/pkgconfig/libnm-gtk.pc
-
