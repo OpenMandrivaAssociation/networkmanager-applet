@@ -6,7 +6,7 @@
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
 Version:	0.9.4.1
-Release:	1
+Release:	2
 Group:		System/Configuration/Networking
 License:	GPLv2+
 URL:		http://www.gnome.org/projects/NetworkManager/
@@ -63,7 +63,6 @@ autoreconf -fi
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 %find_lang nm-applet
@@ -91,3 +90,4 @@ find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 %{_includedir}/libnm-gtk/*
 %{_libdir}/libnm-gtk.so
 %{_libdir}/pkgconfig/libnm-gtk.pc
+
