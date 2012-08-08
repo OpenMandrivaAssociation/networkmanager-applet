@@ -80,8 +80,6 @@ find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 %{_iconsdir}/hicolor/*/apps/*
 %{_libdir}/gnome-bluetooth/plugins/libnma.so
 %{_sysconfdir}/xdg/autostart/nm-applet.desktop
-#{_sysconfdir}/dbus-1/system.d/nm-applet.conf
-%{_sysconfdir}/gconf/schemas/nm-applet.schemas
 
 %files -n %{libname}
 %{_libdir}/libnm-gtk.so.%{major}*
