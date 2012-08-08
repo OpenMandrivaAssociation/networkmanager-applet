@@ -10,7 +10,7 @@ Release:	2
 Group:		System/Configuration/Networking
 License:	GPLv2+
 URL:		http://www.gnome.org/projects/NetworkManager/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/0.9/%{rname}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/%{rname}-%{version}.tar.xz
 Patch0:		network-manager-applet-0.7.999-dont-start-in-kde.patch
 Patch1:		network-manager-applet-0.9.4.1-format_not_a_string_literal.patch
 BuildRequires:	intltool
