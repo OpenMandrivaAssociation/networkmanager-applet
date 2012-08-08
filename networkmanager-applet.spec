@@ -69,17 +69,20 @@ find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 
 %files -f nm-applet.lang
 %doc ChangeLog CONTRIBUTING
+%{_sysconfdir}/xdg/autostart/nm-applet.desktop
 %{_bindir}/nm-connection-editor
 %{_bindir}/nm-applet
+%{_libdir}/gnome-bluetooth/plugins/libnma.so
+%{_libexecdir}/nm-applet-migration-tool
 %{_datadir}/applications/nm-connection-editor.desktop
+%{_datadir}/GConf/gsettings/nm-applet.convert
+%{_datadir}/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
 %dir %{_datadir}/nm-applet/
 %{_datadir}/nm-applet/*.png
 %{_datadir}/nm-applet/*.ui
 %{_datadir}/applications/nm-applet.desktop
 %{_datadir}/libnm-gtk/wifi.ui
 %{_iconsdir}/hicolor/*/apps/*
-%{_libdir}/gnome-bluetooth/plugins/libnma.so
-%{_sysconfdir}/xdg/autostart/nm-applet.desktop
 
 %files -n %{libname}
 %{_libdir}/libnm-gtk.so.%{major}*
