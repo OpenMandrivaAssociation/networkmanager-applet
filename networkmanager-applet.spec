@@ -5,7 +5,7 @@
 
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	0.9.6.2
+Version:	0.9.6.4
 Release:	1
 Group:		System/Configuration/Networking
 License:	GPLv2+
@@ -35,16 +35,16 @@ for the key/passphrase and it can optionally store them in the
 gnome-keyring.
 
 %package -n %{libname}
-Group:      System/Libraries
-Summary:    %{summary}
+Group:		System/Libraries
+Summary:	%{summary}
 
 %description -n %{libname}
-Library from %{name}-gtk
+Library from %{name}-gtk.
 
 %package -n %{develname}
-Group:      Development/C
-Summary:    Development libraries and header files from %{name}
-Requires:   %{libname} = %{EVRD}
+Group:		Development/C
+Summary:	Development libraries and header files from %{name}
+Requires:	%{libname} = %{EVRD}
 
 %description -n %{develname}
 %{name}-gtk development headers and libraries.
@@ -91,4 +91,3 @@ find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 %{_includedir}/libnm-gtk/*
 %{_libdir}/libnm-gtk.so
 %{_libdir}/pkgconfig/libnm-gtk.pc
-
