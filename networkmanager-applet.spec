@@ -1,7 +1,11 @@
+%define url_ver %(echo %{version} | cut -d. -f1,2)
+
 %define	rname	network-manager-applet
+%define	api	1.0
 %define	major	0
 %define libname %mklibname nm-gtk %{major}
-%define develname %mklibname nm-gtk -d
+%define girname %mklibname nmgtk-gir %{api}
+%define devname %mklibname nm-gtk -d
 
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
@@ -9,9 +13,8 @@ Version:	0.9.8.0
 Release:	1
 Group:		System/Configuration/Networking
 License:	GPLv2+
-URL:		http://www.gnome.org/projects/NetworkManager/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/%{rname}-%{version}.tar.xz
-Patch0:		network-manager-applet-0.7.999-dont-start-in-kde.patch
+Url:		http://www.gnome.org/projects/NetworkManager/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/%{url_ver}/%{rname}-%{version}.tar.xz
 
 BuildRequires:	intltool
 BuildRequires:	iso-codes
@@ -19,9 +22,12 @@ BuildRequires:	libiw-devel
 BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(gnome-keyring-1)
 BuildRequires:	pkgconfig(gnome-bluetooth-1.0)
+BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(libnm-glib) >= 0.8.6.0
 BuildRequires:	pkgconfig(libnm-glib-vpn) >= 0.8.6.0
+BuildRequires:	pkgconfig(libnm-util)
 BuildRequires:	pkgconfig(libnotify)
+BuildRequires:	pkgconfig(mm-glib)
 BuildRequires:	pkgconfig(polkit-gobject-1) >= 0.92
 Requires:	networkmanager
 
@@ -41,12 +47,20 @@ Summary:	%{summary}
 %description -n %{libname}
 Library from %{name}-gtk.
 
-%package -n %{develname}
+%package -n %{girname}
+Summary:	GObject Introspection interface description for %{name}
+Group:		System/Libraries
+
+%description -n %{girname}
+GObject Introspection interface description for %{name}.
+
+%package -n %{devname}
 Group:		Development/C
 Summary:	Development libraries and header files from %{name}
 Requires:	%{libname} = %{EVRD}
+Requires:	%{girname} = %{EVRD}
 
-%description -n %{develname}
+%description -n %{devname}
 %{name}-gtk development headers and libraries.
 
 %prep
@@ -54,7 +68,6 @@ Requires:	%{libname} = %{EVRD}
 %apply_patches
 
 %build
-autoreconf -fi
 %configure2_5x \
 	--disable-static \
 	--enable-more-warnings=no \
@@ -64,7 +77,6 @@ autoreconf -fi
 
 %install
 %makeinstall_std
-find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 %find_lang nm-applet
 
 %files -f nm-applet.lang
@@ -83,11 +95,17 @@ find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 %{_datadir}/applications/nm-applet.desktop
 %{_datadir}/libnm-gtk/wifi.ui
 %{_iconsdir}/hicolor/*/apps/*
+%{_mandir}/man1/nm-applet.1*
+%{_mandir}/man1/nm-connection-editor.1*
 
 %files -n %{libname}
 %{_libdir}/libnm-gtk.so.%{major}*
 
-%files -n %{develname}
+%files -n %{girname}
+%{_libdir}/girepository-1.0/NMGtk-%{api}.typelib
+
+%files -n %{devname}
 %{_includedir}/libnm-gtk/*
 %{_libdir}/libnm-gtk.so
 %{_libdir}/pkgconfig/libnm-gtk.pc
+%{_datadir}/gir-1.0/NMGtk-%{api}.gir
