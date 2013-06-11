@@ -29,6 +29,7 @@ BuildRequires:	pkgconfig(libnm-util)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(mm-glib)
 BuildRequires:	pkgconfig(polkit-gobject-1) >= 0.92
+BuildRequires:  pkgconfig(libsecret-1)
 Requires:	networkmanager
 
 %description
