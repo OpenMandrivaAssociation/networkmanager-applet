@@ -10,7 +10,7 @@
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
 Version:	0.9.8.2
-Release:	5
+Release:	6
 Group:		System/Configuration/Networking
 License:	GPLv2+
 Url:		http://www.gnome.org/projects/NetworkManager/
