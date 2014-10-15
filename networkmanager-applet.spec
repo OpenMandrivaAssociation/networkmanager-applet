@@ -9,8 +9,8 @@
 
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	0.9.8.2
-Release:	7
+Version:	0.9.10.0
+Release:	1
 Group:		System/Configuration/Networking
 License:	GPLv2+
 Url:		http://www.gnome.org/projects/NetworkManager/
@@ -19,7 +19,6 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/%{url_ver
 BuildRequires:	intltool
 BuildRequires:	iso-codes
 BuildRequires:	libiw-devel
-BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(gnome-keyring-1)
 BuildRequires:	pkgconfig(gnome-bluetooth-1.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
@@ -69,10 +68,11 @@ Requires:	%{girname} = %{EVRD}
 %apply_patches
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static \
 	--enable-more-warnings=no \
-	--with-bluetooth
+	--with-bluetooth \
+	--disable-migration
 
 %make
 
@@ -85,8 +85,6 @@ Requires:	%{girname} = %{EVRD}
 %{_sysconfdir}/xdg/autostart/nm-applet.desktop
 %{_bindir}/nm-connection-editor
 %{_bindir}/nm-applet
-%{_libdir}/gnome-bluetooth/plugins/libnma.so
-%{_libexecdir}/nm-applet-migration-tool
 %{_datadir}/applications/nm-connection-editor.desktop
 %{_datadir}/GConf/gsettings/nm-applet.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
