@@ -1,16 +1,16 @@
 %define url_ver %(echo %{version} | cut -d. -f1,2)
 
-%define	rname	network-manager-applet
-%define	api	1.0
-%define	major	0
+%define	rname network-manager-applet
+%define	api 1.0
+%define	major 0
 %define libname %mklibname nm-gtk %{major}
 %define girname %mklibname nmgtk-gir %{api}
 %define devname %mklibname nm-gtk -d
 
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	0.9.10.0
-Release:	2
+Version:	1.0.0
+Release:	1
 Group:		System/Configuration/Networking
 License:	GPLv2+
 Url:		http://www.gnome.org/projects/NetworkManager/
@@ -26,10 +26,10 @@ BuildRequires:	pkgconfig(libnm-glib) >= 0.8.6.0
 BuildRequires:	pkgconfig(libnm-glib-vpn) >= 0.8.6.0
 BuildRequires:	pkgconfig(libnm-util)
 BuildRequires:	pkgconfig(libnotify)
-BuildRequires:	pkgconfig(mm-glib)
+BuildRequires:	pkgconfig(mm-glib) >= 1.0.0
 BuildRequires:	pkgconfig(polkit-gobject-1) >= 0.92
 BuildRequires:  pkgconfig(libsecret-1)
-Requires:	networkmanager
+Requires:	networkmanager >= 1.0.0
 
 %description
 Network-manager-applet is a system tray applet which lets you easily
