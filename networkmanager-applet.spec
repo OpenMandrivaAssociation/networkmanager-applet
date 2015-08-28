@@ -86,6 +86,7 @@ Requires:	%{girname} = %{EVRD}
 %{_bindir}/nm-connection-editor
 %{_bindir}/nm-applet
 %{_datadir}/applications/nm-connection-editor.desktop
+%{_datadir}/appdata/org.gnome.nm-connection-editor.appdata.xml
 %{_datadir}/GConf/gsettings/nm-applet.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
 %dir %{_datadir}/nm-applet/
