@@ -9,8 +9,8 @@
 
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	1.0.0
-Release:	2
+Version:	1.0.6
+Release:	1
 Group:		System/Configuration/Networking
 License:	GPLv2+
 Url:		http://www.gnome.org/projects/NetworkManager/
@@ -22,14 +22,14 @@ BuildRequires:	libiw-devel
 BuildRequires:	pkgconfig(gnome-keyring-1)
 BuildRequires:	pkgconfig(gnome-bluetooth-1.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
-BuildRequires:	pkgconfig(libnm-glib) >= 0.8.6.0
+BuildRequires:	pkgconfig(libnm-glib) >= 1.0.6
 BuildRequires:	pkgconfig(libnm-glib-vpn) >= 0.8.6.0
 BuildRequires:	pkgconfig(libnm-util)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(mm-glib) >= 1.0.0
 BuildRequires:	pkgconfig(polkit-gobject-1) >= 0.92
 BuildRequires:  pkgconfig(libsecret-1)
-Requires:	networkmanager >= 1.0.0
+Requires:	networkmanager >= 1.0.6
 
 %description
 Network-manager-applet is a system tray applet which lets you easily
