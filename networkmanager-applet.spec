@@ -16,7 +16,7 @@
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
 Version:	1.8.10
-Release:	1
+Release:	2
 Group:		System/Configuration/Networking
 License:	GPLv2+
 Url:		https://www.gnome.org/projects/NetworkManager/
@@ -43,7 +43,6 @@ BuildRequires:	pkgconfig(libnm-glib) >= %{url_ver}
 BuildRequires:	pkgconfig(libnm-glib-vpn) >= %{url_ver}
 BuildRequires:	pkgconfig(libnm-util) >= %{url_ver}
 BuildRequires:	pkgconfig(libnotify)
-BuildRequires:	pkgconfig(libselinux)
 BuildRequires:  pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(mm-glib) >= 1.0.0
 BuildRequires:	pkgconfig(NetworkManager) >= %{url_ver}
@@ -173,6 +172,7 @@ Requires:	%{girname_nma} = %{EVRD}
 	--disable-more-warnings \
 	--disable-migration \
 	--enable-lto=yes \
+	--without-selinux \
 	%{nil}
 %make
 
