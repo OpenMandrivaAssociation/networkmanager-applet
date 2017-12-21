@@ -15,12 +15,12 @@
 
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	1.4.6
+Version:	1.8.10
 Release:	1
 Group:		System/Configuration/Networking
 License:	GPLv2+
-Url:		http://www.gnome.org/projects/NetworkManager/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/%{url_ver}/%{rname}-%{version}.tar.xz
+Url:		https://www.gnome.org/projects/NetworkManager/
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/%{url_ver}/%{rname}-%{version}.tar.xz
 
 BuildRequires:	intltool
 BuildRequires:	libiw-devel

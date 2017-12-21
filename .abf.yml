@@ -1,4 +1,2 @@
-removed_sources:
-  network-manager-applet-1.0.10.tar.xz: 4c9c65100ba11a3c9caf4fdd2063412b5e342077
 sources:
-  network-manager-applet-1.4.6.tar.xz: 7f6bb1e7b569760643477cd80005f3d48fd8f51f
+  network-manager-applet-1.8.10.tar.xz: e83936ae065867adac8d0a6c020a0ce22b846005
