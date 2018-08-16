@@ -47,6 +47,7 @@ BuildRequires:  pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(mm-glib) >= 1.0.0
 BuildRequires:	pkgconfig(NetworkManager) >= %{url_ver}
 BuildRequires:	pkgconfig(polkit-gobject-1) >= 0.92
+BuildRequires:	mobile-broadband-provider-info
 
 Requires:	networkmanager >= 1.0.6
 
