@@ -15,8 +15,8 @@
 
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	1.8.10
-Release:	2
+Version:	1.8.16
+Release:	1
 Group:		System/Configuration/Networking
 License:	GPLv2+
 Url:		https://www.gnome.org/projects/NetworkManager/
@@ -47,6 +47,7 @@ BuildRequires:  pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(mm-glib) >= 1.0.0
 BuildRequires:	pkgconfig(NetworkManager) >= %{url_ver}
 BuildRequires:	pkgconfig(polkit-gobject-1) >= 0.92
+BuildRequires:  pkgconfig(mobile-broadband-provider-info)
 
 Requires:	networkmanager >= 1.0.6
 
@@ -65,7 +66,7 @@ gnome-keyring.
 %{_bindir}/nm-connection-editor
 %{_bindir}/nm-applet
 %{_datadir}/applications/nm-connection-editor.desktop
-%{_datadir}/appdata/nm-connection-editor.appdata.xml
+%{_datadir}/metainfo/nm-connection-editor.appdata.xml
 %{_datadir}/GConf/gsettings/nm-applet.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
 #%dir %{_datadir}/nm-applet/
@@ -168,6 +169,9 @@ Requires:	%{girname_nma} = %{EVRD}
 %apply_patches
 
 %build
+#export CC=gcc
+#export CXX=g++
+
 %configure \
 	--disable-more-warnings \
 	--disable-migration \
