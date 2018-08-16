@@ -169,6 +169,9 @@ Requires:	%{girname_nma} = %{EVRD}
 %apply_patches
 
 %build
+export CC=gcc
+export CXX=g++
+
 %configure \
 	--disable-more-warnings \
 	--disable-migration \
