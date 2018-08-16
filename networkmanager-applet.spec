@@ -66,7 +66,7 @@ gnome-keyring.
 %{_bindir}/nm-connection-editor
 %{_bindir}/nm-applet
 %{_datadir}/applications/nm-connection-editor.desktop
-#{_datadir}/appdata/nm-connection-editor.appdata.xml
+%{_datadir}/metainfo/nm-connection-editor.appdata.xml
 %{_datadir}/GConf/gsettings/nm-applet.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
 #%dir %{_datadir}/nm-applet/
