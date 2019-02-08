@@ -175,13 +175,14 @@ Requires:	%{girname_nma} = %{EVRD}
 %configure \
 	--disable-more-warnings \
 	--disable-migration \
+	--with-libnm-gtk \
 	--enable-lto=yes \
 	--without-selinux \
 	%{nil}
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 # locales
 %find_lang nm-applet
