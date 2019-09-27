@@ -171,7 +171,6 @@ Requires:	%{girname_nma} = %{EVRD}
 %configure \
 	--disable-more-warnings \
 	--disable-migration \
-	--with-libnm-gtk \
 	--enable-lto=yes \
 	--without-selinux \
 	%{nil}
