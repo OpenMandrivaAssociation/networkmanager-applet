@@ -3,11 +3,6 @@
 %define	rname network-manager-applet
 %define	api 1.0
 
-%define	major_gtk 0
-%define libname_gtk %mklibname nm-gtk %{major_gtk}
-%define girname_gtk %mklibname nmgtk-gir %{api}
-%define devname_gtk %mklibname nm-gtk -d
-
 %define	major_nma 0
 %define libname_nma %mklibname nma %{major_nma}
 %define girname_nma %mklibname nma-gir %{api}
@@ -76,47 +71,6 @@ gnome-keyring.
 %{_iconsdir}/hicolor/*/apps/*
 %{_mandir}/man1/nm-applet.1*
 %{_mandir}/man1/nm-connection-editor.1*
-
-#----------------------------------------------------------------------
-
-%package -n %{libname_gtk}
-Group:		System/Libraries
-Summary:	%{summary}
-
-%description -n %{libname_gtk}
-Library from %{name}-gtk.
-
-%files -n %{libname_gtk}
-%{_libdir}/libnm-gtk.so.%{major_gtk}*
-
-#----------------------------------------------------------------------
-
-%package -n %{girname_gtk}
-Summary:	GObject Introspection interface description for %{name}
-Group:		System/Libraries
-
-%description -n %{girname_gtk}
-GObject Introspection interface description for %{name}.
-
-%files -n %{girname_gtk}
-%{_libdir}/girepository-1.0/NMGtk-%{api}.typelib
-
-#----------------------------------------------------------------------
-
-%package -n %{devname_gtk}
-Group:		Development/C
-Summary:	Development libraries and header files from %{name}
-Requires:	%{libname_gtk} = %{EVRD}
-Requires:	%{girname_gtk} = %{EVRD}
-
-%description -n %{devname_gtk}
-%{name}-gtk development headers and libraries.
-
-%files -n %{devname_gtk}
-%{_includedir}/libnm-gtk/*
-%{_libdir}/libnm-gtk.so
-%{_libdir}/pkgconfig/libnm-gtk.pc
-%{_datadir}/gir-1.0/NMGtk-%{api}.gir
 
 #----------------------------------------------------------------------
 
