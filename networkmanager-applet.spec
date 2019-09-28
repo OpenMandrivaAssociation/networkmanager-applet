@@ -27,6 +27,8 @@ BuildRequires:	libiw-devel
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gconf-2.0)
+BuildRequires:  pkgconfig(gcr-3)
+BuildRequires:  pkgconfig(gck-1)
 BuildRequires:	pkgconfig(gio-2.0)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gmodule-export-2.0)
@@ -42,6 +44,7 @@ BuildRequires:	pkgconfig(libnm) >= %{url_ver}
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:  pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(NetworkManager) >= %{url_ver}
+BuildRequires:  pkgconfig(libnm)
 BuildRequires:	pkgconfig(polkit-gobject-1) >= 0.92
 BuildRequires:  pkgconfig(mobile-broadband-provider-info)
 
@@ -173,6 +176,7 @@ Requires:	%{girname_nma} = %{EVRD}
 	--disable-migration \
 	--enable-lto=yes \
 	--without-selinux \
+	--with-gcr \
 	--without-libnm-gtk \
 	%{nil}
 %make_build
