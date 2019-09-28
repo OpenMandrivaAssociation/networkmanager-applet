@@ -173,6 +173,7 @@ Requires:	%{girname_nma} = %{EVRD}
 	--disable-migration \
 	--enable-lto=yes \
 	--without-selinux \
+	--without-libnm-gtk \
 	%{nil}
 %make_build
 
