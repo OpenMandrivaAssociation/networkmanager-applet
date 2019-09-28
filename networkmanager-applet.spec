@@ -178,6 +178,7 @@ Requires:	%{girname_nma} = %{EVRD}
 	--without-selinux \
 	--with-gcr \
 	--without-libnm-gtk \
+	--without-wwan \
 	%{nil}
 %make_build
 
