@@ -59,7 +59,7 @@ easily switch between them. For encrypted networks it will prompt the user
 for the key/passphrase and it can optionally store them in the
 gnome-keyring.
 
-%files -f nm-applet.lang
+%files -f network-manager-applet.lang
 %doc ChangeLog CONTRIBUTING
 %{_sysconfdir}/xdg/autostart/nm-applet.desktop
 %{_bindir}/nm-connection-editor
@@ -185,6 +185,8 @@ Requires:	%{girname_nma} = %{EVRD}
 %install
 %make_install
 
-# locales
-%find_lang nm-applet
+# Remove .la files
+find %buildroot -name '*.la' -delete
+
+%find_lang network-manager-applet
 
