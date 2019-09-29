@@ -26,6 +26,7 @@ Source0:	https://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/%{url_ve
 
 BuildRequires:	intltool
 BuildRequires:	libiw-devel
+BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gconf-2.0)
