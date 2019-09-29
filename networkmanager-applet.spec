@@ -13,9 +13,11 @@
 %define girname_nma %mklibname nma-gir %{api}
 %define devname_nma %mklibname nma -d
 
+%bcond_with selinux
+
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	1.8.20
+Version:	1.8.22
 Release:	1
 Group:		System/Configuration/Networking
 License:	GPLv2+
@@ -36,18 +38,19 @@ BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gobject-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(gudev-1.0)
+BuildRequires:	pkgconfig(gcr-3)
 BuildRequires:	pkgconfig(jansson)
 BuildRequires:	pkgconfig(iso-codes)
 BuildRequires:	pkgconfig(libnm) >= %{url_ver}
-BuildRequires:	pkgconfig(libnm-glib) >= %{url_ver}
-BuildRequires:	pkgconfig(libnm-glib-vpn) >= %{url_ver}
-BuildRequires:	pkgconfig(libnm-util) >= %{url_ver}
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:  pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(mm-glib) >= 1.0.0
-BuildRequires:	pkgconfig(NetworkManager) >= %{url_ver}
 BuildRequires:	pkgconfig(polkit-gobject-1) >= 0.92
 BuildRequires:  pkgconfig(mobile-broadband-provider-info)
+%if %{with selinux}
+BuildRequires:	pkgconfig(libselinux)
+%endif
+BuildRequires:	meson ninja
 
 Requires:	networkmanager >= 1.0.6
 
@@ -80,51 +83,11 @@ gnome-keyring.
 
 #----------------------------------------------------------------------
 
-%package -n %{libname_gtk}
-Group:		System/Libraries
-Summary:	%{summary}
-
-%description -n %{libname_gtk}
-Library from %{name}-gtk.
-
-%files -n %{libname_gtk}
-%{_libdir}/libnm-gtk.so.%{major_gtk}*
-
-#----------------------------------------------------------------------
-
-%package -n %{girname_gtk}
-Summary:	GObject Introspection interface description for %{name}
-Group:		System/Libraries
-
-%description -n %{girname_gtk}
-GObject Introspection interface description for %{name}.
-
-%files -n %{girname_gtk}
-%{_libdir}/girepository-1.0/NMGtk-%{api}.typelib
-
-#----------------------------------------------------------------------
-
-%package -n %{devname_gtk}
-Group:		Development/C
-Summary:	Development libraries and header files from %{name}
-Requires:	%{libname_gtk} = %{EVRD}
-Requires:	%{girname_gtk} = %{EVRD}
-
-%description -n %{devname_gtk}
-%{name}-gtk development headers and libraries.
-
-%files -n %{devname_gtk}
-%{_includedir}/libnm-gtk/*
-%{_libdir}/libnm-gtk.so
-%{_libdir}/pkgconfig/libnm-gtk.pc
-%{_datadir}/gir-1.0/NMGtk-%{api}.gir
-
-#----------------------------------------------------------------------
-
 %package -n %{libname_nma}
 Group:		System/Libraries
 Summary:	%{summary}
 Requires:	mobile-broadband-provider-info
+Obsoletes:	%{libname_gtk} < %{EVRD}
 
 %description -n %{libname_nma}
 Library from %{name}-nma.
@@ -137,6 +100,7 @@ Library from %{name}-nma.
 %package -n %{girname_nma}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
+Obsoletes:	%{girname_gtk} < %{EVRD}
 
 %description -n %{girname_nma}
 GObject Introspection interface description for %{name}.
@@ -151,6 +115,7 @@ Group:		Development/C
 Summary:	Development libraries and header files from %{name}
 Requires:	%{libname_nma} = %{EVRD}
 Requires:	%{girname_nma} = %{EVRD}
+Obsoletes:	%{devname_gtk} < %{EVRD}
 
 %description -n %{devname_nma}
 %{name}-nma development headers and libraries.
@@ -165,24 +130,17 @@ Requires:	%{girname_nma} = %{EVRD}
 #----------------------------------------------------------------------
 
 %prep
-%setup -qn %{rname}-%{version}
-%apply_patches
+%autosetup -p1 -n %{rname}-%{version}
+%meson \
+%if %{without selinux}
+	-Dselinux=false \
+%endif
 
 %build
-#export CC=gcc
-#export CXX=g++
-
-%configure \
-	--disable-more-warnings \
-	--disable-migration \
-	--with-libnm-gtk \
-	--enable-lto=yes \
-	--without-selinux \
-	%{nil}
-%make_build
+%ninja_build -C build
 
 %install
-%make_install
+%ninja_install -C build
 
 # locales
 %find_lang nm-applet
