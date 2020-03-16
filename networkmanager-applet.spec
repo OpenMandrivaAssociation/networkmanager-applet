@@ -17,13 +17,14 @@
 
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	1.8.24
+Version:	1.16.0
 Release:	1
 Group:		System/Configuration/Networking
 License:	GPLv2+
 Url:		https://www.gnome.org/projects/NetworkManager/
 Source0:	https://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/%{url_ver}/%{rname}-%{version}.tar.xz
 
+BuildRequires:  gettext
 BuildRequires:	intltool
 BuildRequires:	libiw-devel
 BuildRequires:	gtk-doc
@@ -43,6 +44,7 @@ BuildRequires:	pkgconfig(gcr-3)
 BuildRequires:	pkgconfig(jansson)
 BuildRequires:	pkgconfig(iso-codes)
 BuildRequires:	pkgconfig(libnm) >= %{url_ver}
+BuildRequires:  pkgconfig(libnma) >= 1.8.28
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:  pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(mm-glib) >= 1.0.0
@@ -72,7 +74,7 @@ gnome-keyring.
 %{_datadir}/applications/nm-connection-editor.desktop
 %{_datadir}/metainfo/nm-connection-editor.appdata.xml
 %{_datadir}/GConf/gsettings/nm-applet.convert
-%{_datadir}/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
+#%{_datadir}/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
 #%dir %{_datadir}/nm-applet/
 #%{_datadir}/nm-applet/*.png
 #%{_datadir}/nm-applet/*.ui
@@ -84,51 +86,6 @@ gnome-keyring.
 
 #----------------------------------------------------------------------
 
-%package -n %{libname_nma}
-Group:		System/Libraries
-Summary:	%{summary}
-Requires:	mobile-broadband-provider-info
-Obsoletes:	%{libname_gtk} < %{EVRD}
-
-%description -n %{libname_nma}
-Library from %{name}-nma.
-
-%files -n %{libname_nma}
-%{_libdir}/libnma.so.%{major_nma}*
-
-#----------------------------------------------------------------------
-
-%package -n %{girname_nma}
-Summary:	GObject Introspection interface description for %{name}
-Group:		System/Libraries
-Obsoletes:	%{girname_gtk} < %{EVRD}
-
-%description -n %{girname_nma}
-GObject Introspection interface description for %{name}.
-
-%files -n %{girname_nma}
-%{_libdir}/girepository-1.0/NMA-%{api}.typelib
-
-#----------------------------------------------------------------------
-
-%package -n %{devname_nma}
-Group:		Development/C
-Summary:	Development libraries and header files from %{name}
-Requires:	%{libname_nma} = %{EVRD}
-Requires:	%{girname_nma} = %{EVRD}
-Obsoletes:	%{devname_gtk} < %{EVRD}
-
-%description -n %{devname_nma}
-%{name}-nma development headers and libraries.
-
-%files -n %{devname_nma}
-%doc %{_datadir}/gtk-doc/html/libnma/
-%{_includedir}/libnma/*
-%{_libdir}/libnma.so
-%{_libdir}/pkgconfig/libnma.pc
-%{_datadir}/gir-1.0/NMA-%{api}.gir
-
-#----------------------------------------------------------------------
 
 %prep
 %autosetup -p1 -n %{rname}-%{version}
@@ -145,4 +102,3 @@ Obsoletes:	%{devname_gtk} < %{EVRD}
 
 # locales
 %find_lang nm-applet
-
