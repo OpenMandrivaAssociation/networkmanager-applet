@@ -74,7 +74,7 @@ gnome-keyring.
 %{_datadir}/applications/nm-connection-editor.desktop
 %{_datadir}/metainfo/nm-connection-editor.appdata.xml
 %{_datadir}/GConf/gsettings/nm-applet.convert
-%{_datadir}/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
+#%{_datadir}/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
 #%dir %{_datadir}/nm-applet/
 #%{_datadir}/nm-applet/*.png
 #%{_datadir}/nm-applet/*.ui
