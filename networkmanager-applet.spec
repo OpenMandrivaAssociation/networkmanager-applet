@@ -24,13 +24,16 @@ License:	GPLv2+
 Url:		https://www.gnome.org/projects/NetworkManager/
 Source0:	https://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/%{url_ver}/%{rname}-%{version}.tar.xz
 
+BuildRequires:  cmake
 BuildRequires:  gettext
 BuildRequires:	intltool
 BuildRequires:	libiw-devel
 BuildRequires:	gtk-doc
 BuildRequires:  pkgconfig(appindicator3-0.1)
+BuildRequires:  pkgconfig(ayatana-appindicator3-0.1)
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(dbus-glib-1)
+BuildRequires:  pkgconfig(dbusmenu-gtk3-0.4)
 BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(gio-2.0)
 BuildRequires:	pkgconfig(glib-2.0)
