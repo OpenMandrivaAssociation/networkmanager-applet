@@ -28,6 +28,7 @@ BuildRequires:  gettext
 BuildRequires:	intltool
 BuildRequires:	libiw-devel
 BuildRequires:	gtk-doc
+BuildRequires:  pkgconfig(appindicator3-0.1)
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gconf-2.0)
