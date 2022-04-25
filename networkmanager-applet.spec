@@ -17,7 +17,7 @@
 
 Name:		networkmanager-applet
 Summary:	Network connection manager applet for GNOME
-Version:	1.24.0
+Version:	1.26.0
 Release:	1
 Group:		System/Configuration/Networking
 License:	GPLv2+
