@@ -27,7 +27,7 @@ Source0:	https://ftp.gnome.org/pub/GNOME/sources/network-manager-applet/%{url_ve
 BuildRequires:  cmake
 BuildRequires:  gettext
 BuildRequires:	intltool
-BuildRequires:	libiw-devel
+#BuildRequires:	libiw-devel
 BuildRequires:	gtk-doc
 BuildRequires:  pkgconfig(appindicator3-0.1)
 BuildRequires:  pkgconfig(ayatana-appindicator3-0.1)
