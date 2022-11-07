@@ -71,7 +71,7 @@ for the key/passphrase and it can optionally store them in the
 gnome-keyring.
 
 %files -f nm-applet.lang
-%doc ChangeLog CONTRIBUTING
+%doc CONTRIBUTING
 %{_sysconfdir}/xdg/autostart/nm-applet.desktop
 %{_bindir}/nm-connection-editor
 %{_bindir}/nm-applet
